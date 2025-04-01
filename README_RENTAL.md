@@ -6,6 +6,69 @@ This repository contains solutions for three different problems related to equip
 
 Finds the shortest path to available equipment in a network of rental providers using BFS.
 
+# Equipment Rental Availability
+
+This solution implements a system for finding the shortest path to available equipment in a network of rental providers using Breadth-First Search (BFS).
+
+## Problem Description
+
+Equip9 manages a network of equipment rental providers. Each provider has connections with other providers, allowing customers to rent equipment even if their preferred provider does not have availability. Given a list of providers and their connections, this solution determines the shortest path to find the nearest available equipment of a given type.
+
+## Features
+
+- Finds the shortest path to available equipment using BFS
+- Handles disconnected graphs
+- Returns -1 if no path exists
+- Type-hinted for better code clarity
+
+## Implementation Details
+
+The solution uses:
+- BFS (Breadth-First Search) for finding shortest paths
+- Adjacency list representation for the graph
+- Type hints for better code maintainability
+
+### Time Complexity
+- Building the graph: O(E) where E is the number of edges
+- BFS traversal: O(V + E) where V is the number of vertices and E is the number of edges
+
+### Space Complexity
+O(V) for the visited set and queue
+
+## Usage
+
+```python
+from equipment_rental import find_equipment_path
+
+# Example usage
+n = 5  # number of providers
+edges = [(1, 2), (2, 3), (3, 4), (4, 5)]  # connections between providers
+availability = {
+    1: ["excavator"],
+    2: [],
+    3: ["bulldozer"],
+    4: ["excavator"],
+    5: ["crane"]
+}
+start_provider = 2
+target_equipment = "excavator"
+
+result = find_equipment_path(n, edges, availability, start_provider, target_equipment)
+print(result)  # Output: [2, 3, 4]
+```
+
+## Test Cases
+
+The solution includes test cases for:
+1. Basic path finding
+2. Disconnected graphs
+3. Multiple available equipment
+4. No available equipment
+
+## Function Structure
+
+- `find_equipment_path(n: int, edges: List[Tuple[int, int]], availability: Dict[int, List[str]], start_provider: int, target_equipment: str) -> List[int]`: Main function to find the shortest path to available equipment
+
 [View Solution](README_RENTAL.md)
 
 ## 2. Optimal Equipment Deal Matching (Heap/Priority Queue)
