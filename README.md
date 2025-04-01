@@ -1,45 +1,71 @@
-# Equipment Rental Availability Finder
+# Equip9 Solutions
 
-This project implements a solution for finding the shortest path to available equipment in a network of rental providers using Breadth-First Search (BFS).
+This repository contains solutions for three different problems related to equipment rental and maintenance management.
 
-## Problem Description
+## 1. Equipment Rental Availability (Graph Algorithm – BFS/DFS)
 
-Equip9 manages a network of equipment rental providers. Each provider has connections with other providers, allowing customers to rent equipment even if their preferred provider does not have availability. Given a list of providers and their connections, this solution determines the shortest path to find the nearest available equipment of a given type.
+Finds the shortest path to available equipment in a network of rental providers using BFS.
+
+[View Solution](README_RENTAL.md)
+
+## 2. Optimal Equipment Deal Matching (Heap/Priority Queue)
+
+Matches equipment buyers with sellers using a Priority Queue to find the best-priced deals.
+
+[View Solution](README_DEAL_MATCHER.md)
+
+## 3. Maintenance Log Analysis (Segment Tree)
+
+Analyzes equipment maintenance logs using a Segment Tree for efficient range queries.
+
+[View Solution](README_MAINTENANCE.md)
+
+## Project Structure
+
+```
+equipment-rental-finder/
+├── equipment_rental.py      # Solution for Equipment Rental Availability
+├── equipment_deal_matcher.py # Solution for Optimal Equipment Deal Matching
+├── maintenance_log_analyzer.py # Solution for Maintenance Log Analysis
+├── README.md               # Main README file
+├── README_RENTAL.md        # Documentation for Equipment Rental solution
+├── README_DEAL_MATCHER.md  # Documentation for Deal Matching solution
+└── README_MAINTENANCE.md   # Documentation for Maintenance Log solution
+```
+
+## Requirements
+
+- Python 3.6+
+- No external dependencies required (uses only standard library)
+
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Shauryan28/equipment-rental-finder.git
+```
+
+2. Navigate to the project directory:
+```bash
+cd equipment-rental-finder
+```
+
+3. Run any of the solutions:
+```bash
+python equipment_rental.py
+python equipment_deal_matcher.py
+python maintenance_log_analyzer.py
+```
 
 ## Features
 
-- Finds the shortest path to available equipment using BFS
-- Handles disconnected graphs
-- Returns -1 if no path exists
-- Type-hinted for better code clarity
+Each solution includes:
+- Efficient data structures for optimal performance
+- Type hints for better code clarity
+- Comprehensive documentation
+- Test cases and examples
+- Detailed complexity analysis
 
-## Usage
+## License
 
-```python
-from equipment_rental import find_equipment_path
-
-# Example usage
-n = 5  # number of providers
-edges = [(1, 2), (2, 3), (3, 4), (4, 5)]  # connections between providers
-availability = {
-    1: ["excavator"],
-    2: [],
-    3: ["bulldozer"],
-    4: ["excavator"],
-    5: ["crane"]
-}
-start_provider = 2
-target_equipment = "excavator"
-
-result = find_equipment_path(n, edges, availability, start_provider, target_equipment)
-print(result)  # Output: [2, 3, 4]
-```
-
-## Time Complexity
-
-- Building the graph: O(E) where E is the number of edges
-- BFS traversal: O(V + E) where V is the number of vertices and E is the number of edges
-
-## Space Complexity
-
-O(V) for the visited set and queue 
+This project is open source and available under the MIT License. 
